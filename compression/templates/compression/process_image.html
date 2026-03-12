@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Medical Image Compression</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .images {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap; /* Prevents horizontal scroll */
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .images > div {
+            flex: 1 1 300px; /* Allows columns to grow/shrink, minimum 300px wide */
+            text-align: center;
+            background: #fafafa;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+        }
+
+        img {
+            max-width: 100%; /* Ensures images scale down and don't overflow */
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            margin-bottom: 10px;
+        }
+
+        .info {
+            background: #eef2f5;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+
+        .download {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .button, button {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .button:hover, button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Medical Image Compression</h1>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Process Image</button>
+        </form>
+        {% if orig_img %}
+        <div class="info">
+            <p><strong>Color Image:</strong></p>
+            <p>Original Size: {{ orig_size }}</p>
+            <p>Compressed Size: {{ comp_size }}</p>
+            <p>Max Reconstruction Error: {{ max_error|floatformat:4 }}</p>
+            <hr>
+            <p><strong>Grayscale (Black & White) Version:</strong></p>
+            <p>Compressed Size: {{ comp_size_bw }}</p>
+            <p>Max Reconstruction Error: {{ max_error_bw|floatformat:4 }}</p>
+        </div>
+        <div class="images">
+            <div>
+                <h3>Original Image (Color)</h3>
+                <img src="data:image/png;base64,{{ orig_img }}" alt="Original Image">
+            </div>
+            <div>
+                <h3>Reconstructed (Color)</h3>
+                <img src="data:image/png;base64,{{ recon_img }}" alt="Reconstructed Image">
+                <br>
+                <a href="{% url 'download_recon_rgb' %}" class="button">Download Image</a>
+            </div>
+            <div>
+                <h3>Reconstructed (B&W)</h3>
+                <img src="data:image/png;base64,{{ recon_img_bw }}" alt="Reconstructed BW Image">
+                <br>
+                <a href="{% url 'download_recon_bw' %}" class="button">Download Image</a>
+            </div>
+        </div>
+        <div class="download">
+            <h3>Download Compressed Binary Data</h3>
+            <a href="{% url 'download_compressed' %}" class="button">Download Compressed Data</a>
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>

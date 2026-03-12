@@ -1,0 +1,7 @@
+django
+numpy
+torch
+PyWavelets
+scikit-image
+pydicom
+Pillow
