@@ -75,12 +75,92 @@
         .button:hover, button:hover {
             background-color: #0056b3;
         }
+
+        /* Form and File Input Styling */
+        form {
+            background-color: #fafafa;
+            padding: 25px;
+            border: 2px dashed #d0d7de;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 25px;
+            transition: border-color 0.2s;
+        }
+        
+        form:hover {
+            border-color: #007bff;
+        }
+
+        input[type="file"]::file-selector-button {
+            border: 2px solid #007bff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            background-color: #fff;
+            color: #007bff;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            margin-right: 15px;
+        }
+
+        input[type="file"]::file-selector-button:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        
+        input[type="file"] {
+            font-family: inherit;
+            color: #555;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            width: 100%;
+            max-width: 400px;
+            box-sizing: border-box;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .intro-box {
+            background-color: #e3f2fd;
+            border-left: 5px solid #007bff;
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 4px;
+        }
+        
+        .intro-box h2 {
+            margin-top: 0;
+            color: #007bff;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        
+        .intro-box p, .intro-box li {
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <h1>Medical Image Compression</h1>
+        
+        <div class="intro-box">
+            <h2>Welcome! What does this tool do?</h2>
+            <p>This project uses an advanced mathematical and Artificial Intelligence algorithm to shrink the file size of medical scans (like X-Rays and MRIs) and regular color photos—without destroying the important visual details needed by doctors.</p>
+            
+            <p><strong>How to test it:</strong></p>
+            <ol>
+                <li>Click <strong>Choose File</strong> below and pick an image from your computer.</li>
+                <li>Click <strong>Process Image</strong>. Our system will analyze, compress, and reconstruct your image.</li>
+                <li>Compare the Original Size versus the Compressed Size to see how much space was saved!</li>
+            </ol>
+            <p><em>Why this matters: Hospitals generate millions of gigabytes of data every year. Shrinking these files makes them much cheaper to store and much faster to send to doctors around the world over the internet.</em></p>
+        </div>
+
         <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
