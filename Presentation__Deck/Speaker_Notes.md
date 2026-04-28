@@ -135,3 +135,20 @@ Smile. Look at the judges. Take a deep breath. When a question is asked, listen 
 
 **Q: What if the image is already compressed?**
 *A:* "If a file is already heavily compressed, running it through our system might yield diminishing returns, as entropy is already maximized. However, our system detects the format and ensures no data corruption occurs."
+
+---
+
+## 📊 How to Handle Requests for Graphs & Live Data
+**If a judge asks:** *"Do you have any graphs comparing your method to others? Can we see the performance metrics visually?"*
+
+Here is exactly how your team should handle it without panicking:
+
+1. **Use the Live Web App (Best Approach):** 
+   * **What to say:** *"Yes, absolutely. We have built real-time metrics directly into our Django web application."*
+   * **Action:** Switch over to the web app you have running locally. Upload an image, compress it, and show the judges the before/after size and the performance numbers outputted by your system right on the screen.
+2. **Keep "Backup Slides" Ready:**
+   * **Preparation:** It is highly recommended to add 2 or 3 extra slides at the *very end* of your PPT (after the "Thank You" slide). Put your PSNR comparison charts, Compression Ratio bar graphs, or AI training curves there. 
+   * **Action:** If asked, just press the right arrow key past the Thank You slide to say, *"Yes, we anticipated this question. Here is a graph comparing our compression ratio against standard JPEG 2000..."*
+3. **Reference the Project Documentation:**
+   * **What to say:** *"We have detailed performance graphs and comparative tables documented in our technical project report."*
+   * **Action:** Keep the PDF version of your LaTeX project report open and minimized in the background. If the judges want to see it, you can Alt+Tab to the PDF instantly and show them the exact figures.
