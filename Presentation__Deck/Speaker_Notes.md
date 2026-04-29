@@ -172,6 +172,6 @@ If a judge tries to put you on the spot and asks you to literally write code or 
 
 **3. How to Explain the Graph (Very Simplified Script):**
 * **The Setup:** *"This graph shows exactly why our system is better than existing methods by measuring two main things."*
-* **Point to the Blue Bars (File Size):** *"The blue bars show the Compression Ratio—which just means how small we can shrink the file. Taller is better. As you can see on the far right, our system shrinks the file by 55%, which easily beats older methods like JPEG 2000."*
-* **Point to the Red Bars (Image Quality):** *"The red bars show the Image Quality (PSNR). Again, taller is better. In medical imaging, doctors cannot afford blurry X-rays. Our system reaches a perfect 40 dB, meaning the image quality is flawless and nothing is lost, while older methods fall short."*
+* **Point to the Blue Bars (File Size):** *"The blue bars show the Compression Ratio—which just means how small we can shrink the file. Taller is better. As you can see on the far right, our system shrinks the file by 55%, which easily beats older methods like JPEG (Joint Photographic Experts Group) 2000."*
+* **Point to the Red Bars (Image Quality):** *"The red bars show the Image Quality, measured in PSNR (Peak Signal-to-Noise Ratio). Again, taller is better. In medical imaging, doctors cannot afford blurry X-rays. Our system reaches a perfect 40 dB, meaning the image quality is flawless and nothing is lost, while older methods fall short."*
 * **The Conclusion:** *"So in simple terms: Not only do we make the file much smaller than the existing systems, we actually keep the picture quality much higher."*
